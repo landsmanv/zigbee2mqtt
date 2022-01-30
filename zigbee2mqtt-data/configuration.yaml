@@ -1,0 +1,40 @@
+homeassistant: true
+permit_join: true
+mqtt:
+  base_topic: zigbee2mqtt
+  server: mqtt://192.168.1.5
+serial:
+  disable_led: true
+  port: /dev/ttyACM0
+frontend:
+  port: 8080
+advanced:
+  log_level: error
+  network_key:
+    - 9
+    - 34
+    - 31
+    - 43
+    - 101
+    - 46
+    - 180
+    - 48
+    - 80
+    - 154
+    - 79
+    - 55
+    - 215
+    - 207
+    - 19
+    - 126
+devices:
+  '0x00124b0024c01c1e':
+    friendly_name: Sonoff MINI
+  '0x00178801083a3a09':
+    friendly_name: HUE pracovna
+  '0x00178801083a39af':
+    friendly_name: HUE loznice
+  '0x0017880108343dca':
+    friendly_name: HUE chodba
+  '0xa4c138088c3ec052':
+    friendly_name: TuYa WHD02

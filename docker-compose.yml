@@ -35,3 +35,25 @@ services:
     restart: unless-stopped
     privileged: true
     network_mode: host
+
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp"
+      - "80:80/tcp"
+    network_mode: host
+    environment:
+      TZ: 'Europe/Prague'
+      WEBPASSWORD: 'root'
+      DNSMASQ_USER: 'root'
+      ServerIP: "192.168.1.5"
+      QUERY_LOGGING: "false"
+    volumes:
+      - '/opt/pihole/:/etc/pihole/'
+      - '/opt/pihole/dnsmasq.d/:/etc/dnsmasq.d/'
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
